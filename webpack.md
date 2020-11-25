@@ -79,4 +79,31 @@ $ npm i webpack webpack-cli
 > 作用 : 一个模块发生变化，只会重新打包这一个模块（而不是打包所有文件，提升构建速度）
 > 只能处理非入口文件
 
++ 样式文件：可以使用HMR功能，因为style-loader内部实现了
 
++ js文件：默认不能使用HMR功能 --> 需要修改js代码，添加支持HMR功能的代码
+    注意：HMR功能只能处理非入口js文件
+    
+    ```
+    devServer:{
+        hot:true
+    }
+    ```
+    
+    ```
+    if(module.hot){
+        // 一旦module.hot为true说明开启了HMR功能
+        module.hot.accept('./print.js',function(){
+            // 该方法会监听 print.js 文件的变化，一旦发生变化，其他默认不会重新打包构建，只会执行下边的回调函数
+            print()
+        })
+    }
+    ```
+
++ html文件：默认不使用HMR功能，同时会导致问题，html文件不能热更新
+    解决：修改entry入口，将html文件引入
+    ```
+    entry:['./src/js/index.js,'./src/index.html']/
+    ```
+
+2. source-map : 一种提供源代码到构建后代码映射的技术（如果构建后代码出错了，通过映射可以追踪到源代码错误的位置）
