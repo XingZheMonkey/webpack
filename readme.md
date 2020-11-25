@@ -28,29 +28,14 @@
 
 6. 执行webpack打包 $ npx webpack
 
-7. css 打包模块解析
-   $ npm i css-loader  
-   $ npm i style-loader
-   使用：将写好的css文件引入到index.js中，一起打包
-   配置:
-   ```
-        module:{
-            rules:[
-                {
-                    test: /\.css$/,
-                    use: [
-                        // 顺序很重要，从后向前解析，先写style-loader
-                        { loader: 'style-loader' },
-                        { loader: 'css-loader'}
-                    ]
-                }
-            ]
+# webpack的五个核心概念
 
-        }
-   ```
+1. entry ：入口提示，webpack以哪个文件为入口起点开始打包，分析构建内部依赖图
 
-8. sass 打包模块依赖
-   $ npm i sass-loader node-sass -p
+2. output ：输出提示 webpack打包的资源bundles输出到哪里，以及如何命名
 
-   同css文件，配置添加{ loader: 'sass-loader'}
-   test: /\.(sc|c|sa)ss$/
+3. loader ：loader让webpack能够处理 非js文件 (webpack自身只理解js)
+
+4. plugins ：插件可用于执行范围更广的任务，插件的范围包括，从打包优化和压缩，一直到重新定义环境中的变量等
+
+5. mode ：选择 development 或 production 之中的一个，来设置 mode 参数
