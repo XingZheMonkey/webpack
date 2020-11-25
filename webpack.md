@@ -107,3 +107,25 @@ $ npm i webpack webpack-cli
     ```
 
 2. source-map : 一种提供源代码到构建后代码映射的技术（如果构建后代码出错了，通过映射可以追踪到源代码错误的位置）
+
+   + source-map 外部
+        - 错误代码准确位置 和 源代码的错误位置
+   
+   + inline-source-map 内联 （只生成一个内联source-map）
+        - 错误代码准确信息 和 源代码的错误位置
+   
+   + hidden-source-map 外部
+        - 错误代码错误原因 但没有错误位置
+        
+        - 不能追踪源代码错误，只能提示到构建后代码的错误位置
+    
+   + eval-source-map 内联
+        + 每一个文件都生成对应的source-map，都在eval
+        
+   + nosources-source-map 外部
+   
+   + cheap-source-map 外部
+   
+   + cheap-module-source-map 外部
+   
+> 内联和外部的区别：1.外部生成了新的文件，内部没有  2.内联构建速度更快
