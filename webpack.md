@@ -164,3 +164,18 @@ $ npm i webpack webpack-cli
 #### oneof 
 
 > oneof中不要出现两个配置处理同一种类型文件
+
+#### 缓存
+
+1. 开启babel缓存
+> cacheDirectory:true
+
+2. 文件资源缓存
+
+   + hash: 每次webpack 构建时都会生成一个唯一的hash值
+        问题：因为js和css同时使用一个hash值，如果重新打包，会导致所有缓存失效（但却只改了一个文件）
+   
+   + chunkhash: 根据chunk生成的hash值，如果打包来自于同一个chunk，那么hash值还是一样的
+        问题：js和css的hash值还是一样的，因为css是在js中被引入的，同属于一个chunk
+   
+   + contenthash：根据文件内容生产hash值，不同文件的hash值一定不一样
