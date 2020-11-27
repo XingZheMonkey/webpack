@@ -134,5 +134,7 @@ module.exports = {
         compress:true,
         // 启动devServer 指令为 ： npx webpack-dev-server
         port:3000
-    }
+    },
+    // 开启source-map     
+    devtool:'cheap-source-map'
 }
