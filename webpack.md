@@ -179,3 +179,13 @@ $ npm i webpack webpack-cli
         问题：js和css的hash值还是一样的，因为css是在js中被引入的，同属于一个chunk
    
    + contenthash：根据文件内容生产hash值，不同文件的hash值一定不一样
+   
+#### tree shaking 
+
+> 作用 ：去除无用代码，减少代码体积，树摇
+> 前提 ：必须使用Es6语法，必须开启 production 环境
+
+1.在package.json中配置
+    + "sideEffects":false   所有代码都没有副作用（都可以进行tree shaking）
+        + 问题：可能会把 css/@babel/polyfill （副作用） 文件干掉
+    + "sideEffects":["*.css"]
