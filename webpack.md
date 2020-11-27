@@ -185,7 +185,7 @@ $ npm i webpack webpack-cli
 > 作用 ：去除无用代码，减少代码体积，树摇
 > 前提 ：必须使用Es6语法，必须开启 production 环境
 
-1.在package.json中配置
+1. 在package.json中配置
     + "sideEffects":false   所有代码都没有副作用（都可以进行tree shaking）
-        + 问题：可能会把 css/@babel/polyfill （副作用） 文件干掉
+       - 问题：可能会把 css/@babel/polyfill （副作用） 文件干掉
     + "sideEffects":["*.css"]
