@@ -121,11 +121,42 @@ $ npm i webpack webpack-cli
     
    + eval-source-map 内联
         + 每一个文件都生成对应的source-map，都在eval
+        + 错误代码准确位置以及源代码错误位置
         
    + nosources-source-map 外部
+        + 错误代码准确信息，但是没有源代码信息
    
    + cheap-source-map 外部
+        + 错误代码准确信息 和 源代码的错误位置(只能精确到行)
    
    + cheap-module-source-map 外部
    
+        + 错误代码准确信息 和 源代码的错误位置
+   
 > 内联和外部的区别：1.外部生成了新的文件，内部没有  2.内联构建速度更快
+
+> 开发环境：速度快，测试更友好
+
+    + 速度快（eval-> inline -> cheap -> ...）
+    
+        + eval-cheap-source-map
+    
+        + eval-source-map
+    
+    + 测试更友好
+    
+        + source-map
+        
+        + cheap-module-source-map
+        
+        + cheap-source-map
+     
+     ---> eval-source-map / eval-cheap-module-source-map
+     
+> 生产环境：源代码要不要隐藏？调试要不要更友好（内联会让代码体积变大，所以生产环境不用内联）
+
+    + noresource-source-map
+    
+    + hidden-source-map
+    
+  ---> source-map / cheap-module-source-map
