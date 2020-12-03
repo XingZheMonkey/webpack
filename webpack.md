@@ -74,7 +74,7 @@ $ npm i webpack webpack-cli
 
 ## 开发环境优化
 
-#### HMR ： hot moudle replacement 热模块替换 / 模块热更新
+### HMR ： hot moudle replacement 热模块替换 / 模块热更新
 
 > 作用 : 一个模块发生变化，只会重新打包这一个模块（而不是打包所有文件，提升构建速度）
 > 只能处理非入口文件
@@ -106,7 +106,7 @@ $ npm i webpack webpack-cli
     entry:['./src/js/index.js,'./src/index.html']/
     ```
 
-#### source-map : 一种提供源代码到构建后代码映射的技术（如果构建后代码出错了，通过映射可以追踪到源代码错误的位置）
+### source-map : 一种提供源代码到构建后代码映射的技术（如果构建后代码出错了，通过映射可以追踪到源代码错误的位置）
 
 + source-map 外部
     - 错误代码准确位置 和 源代码的错误位置
@@ -161,11 +161,11 @@ $ npm i webpack webpack-cli
 
 ---> source-map / cheap-module-source-map
 
-#### oneof 
+### oneof 
 
 > oneof中不要出现两个配置处理同一种类型文件
 
-#### 缓存
+### 缓存
 
 1. 开启babel缓存
 > cacheDirectory:true
@@ -180,7 +180,7 @@ $ npm i webpack webpack-cli
    
    + contenthash：根据文件内容生产hash值，不同文件的hash值一定不一样
    
-#### tree shaking 
+### tree shaking 
 
 > 作用 ：去除无用代码，减少代码体积，树摇
 > 前提 ：必须使用Es6语法，必须开启 production 环境
