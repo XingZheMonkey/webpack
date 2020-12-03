@@ -211,4 +211,19 @@ output:{
 
 2. code split
 
-> 可以将node_modules中的
+> 可以将node_modules中的代码单独打包一个chunk 最终输出，并且自动分析多入口chunk中有没有公共的文件，如果有会打包成单独一个chunk
+```
+例： index.js 引入 jquery，test.js 引入jquery，多入口情况下只会打包出一个jquery
+```
+
+```
+optimization:{
+    splitChunks:{
+        chunks:"all"
+    }
+},
+mode:"production"
+```
+
+3. 通过js代码让某个文件被单独打包成一个chunk（es10 --- import动态导入语法能将某个文件单独打包）
+
