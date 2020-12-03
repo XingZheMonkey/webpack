@@ -238,3 +238,38 @@ import ( /* webpackChunkName:'test' */ './test.js')
     })
 ```
 
+### js懒加载和预加载
+
+1. js懒加载
+
+```
+element.addEventListener('click', async () => {
+    const module = await import('./api-scripts/button-click.js')
+})
+或者
+element.addEventListener('click',  () => {
+    import('./api-scripts/button-click.js')
+        .then(result=>{
+            console.log(result)
+        })
+})
+```
+
+2. js预加载
+
+```
+element.addEventListener('click',  () => {
+    import( /* webpackChunkName:'test' , webpackPrefetch:true */  './test.js')
+        .then(result=>{
+            console.log(result)
+        })
+})
+
+```
+
+    + 正常加载可以认为是并行加载，同一时间加载多个文件
+    
+    + 预加载 prefetch 是等其他资源加载完毕，浏览器空闲了，再偷偷加载其他资源
+    
+    + 懒加载 只有需求时才会加载
+
