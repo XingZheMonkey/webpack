@@ -180,6 +180,11 @@ $ npm i webpack webpack-cli
    
    + contenthash：根据文件内容生产hash值，不同文件的hash值一定不一样
    
+   ```
+   output:{
+    fileName:"js/[name].[contenthash:10].js"
+   }
+   ```
 ### tree shaking 
 
 > 作用 ：去除无用代码，减少代码体积，树摇
@@ -189,3 +194,21 @@ $ npm i webpack webpack-cli
     + "sideEffects":false   所有代码都没有副作用（都可以进行tree shaking）
        - 问题：可能会把 css/@babel/polyfill （副作用） 文件干掉
     + "sideEffects":["*.css"]
+    
+### code split
+
+1. 多入口：有一个入口，最终就会输出一个bundle
+
+```
+entry:{
+    index:"src/js/index.js",
+    test:"src/js/test.js"
+},
+output:{
+    fileName:"js/[name].[contenthash:10].js"
+}
+```
+
+2. code split
+
+> 可以将node_modules中的
