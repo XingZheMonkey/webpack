@@ -227,3 +227,14 @@ mode:"production"
 
 3. 通过js代码让某个文件被单独打包成一个chunk（es10 --- import动态导入语法能将某个文件单独打包）
 
+```
+import ( /* webpackChunkName:'test' */ './test.js')
+    .then(result=>{
+        // 文件加载成功
+        console.log(result)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+```
+
