@@ -78,7 +78,9 @@ module.exports = {
                     // 给文件重命名，截取hash值的前10位
                     name: '[hash:10].[ext]',
                     // esModule:false
-                    outputPath:"imgs/"
+                    outputPath:"imgs/",
+                    // 设置css里引入图片的路径
+                    publicPath:"../imgs"
                 }
             },
             // 低版本问题：url-loader 默认使用es6模块化解析，但html-loader引入图片是靠commonjs，解决方案是关掉url-loader的esModule:false
