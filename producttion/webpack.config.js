@@ -7,14 +7,13 @@ const commonCssLoader = [
     MiniCssExtractPlugin.loader,
     "css-loader",
     {
-        loader:'postcss-loader',
+        loader:"postcss-loader",
         options:{
-            ident:"postcss",
-            plugins:()=>[
-                require("postcss-preset-env")()
-            ]
+            postcssOptions:{
+                plugins:[require("postcss-preset-env")]
+            }
         }
-    },
+    }
 ]
 
 module.exports = {
