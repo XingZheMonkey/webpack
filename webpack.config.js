@@ -25,12 +25,11 @@ module.exports = {
                     // 处理css兼容性问题,postcss-preset-env 会帮postcss找到package.json中browerslist里面的配置，通过配置加载指定的css兼容性样式
 
                     {
-                        loader:'postcss-loader',
+                        loader:"postcss-loader",
                         options:{
-                            ident:"postcss",
-                            plugins:()=>[
-                                require("postcss-preset-env")()
-                            ]
+                            postcssOptions:{
+                                plugins:[require("postcss-preset-env")]
+                            }
                         }
                     },
 
@@ -56,12 +55,11 @@ module.exports = {
                     // 处理css兼容性问题,postcss-preset-env 会帮postcss找到package.json中browerslist里面的配置，通过配置加载指定的css兼容性样式
 
                     {
-                        loader:'postcss-loader',
+                        loader:"postcss-loader",
                         options:{
-                            ident:"postcss",
-                            plugins:()=>[
-                                require("postcss-preset-env")()
-                            ]
+                            postcssOptions:{
+                                plugins:[require("postcss-preset-env")]
+                            }
                         }
                     }
                     
