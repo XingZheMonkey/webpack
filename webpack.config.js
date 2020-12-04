@@ -73,6 +73,7 @@ module.exports = {
                 loader:'url-loader',
                 options:{
                     // 图片大小限于8kb，就会被转化为base64处理 ，可以减少请求数量，减轻服务器压力，但图片体积会变大（8kb可以改）
+                    // 图片体积大于8kb，才会输出为独立的图片
                     limit: 8 * 1024,
 
                     // 给文件重命名，截取hash值的前10位
