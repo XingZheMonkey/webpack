@@ -44,8 +44,13 @@ module.exports = {
                 test:/\.css$/,
                 use:[
                     // 2.1 取代style标签，创建css文件
-                    MiniCssExtractPlugin.loader,
-
+                    {
+                        loader:miniCssExtractPlugin.loader,
+                        options:{
+                            // 设置css里引入图片的路径
+                            publicPath:"../"
+                        }
+                    },
                     // 2. 创建style标签，将js中的样式资源插入并添加到header中生效
                     // 'style-loader',
                     
@@ -79,9 +84,7 @@ module.exports = {
                     // 给文件重命名，截取hash值的前10位
                     name: '[hash:10].[ext]',
                     // esModule:false
-                    outputPath:"imgs/",
-                    // 设置css里引入图片的路径
-                    publicPath:"../imgs"
+                    outputPath:"imgs/"
                 }
             },
             // 低版本问题：url-loader 默认使用es6模块化解析，但html-loader引入图片是靠commonjs，解决方案是关掉url-loader的esModule:false
