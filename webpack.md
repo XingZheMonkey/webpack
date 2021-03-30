@@ -77,7 +77,8 @@ $ npm i webpack webpack-cli
 ### HMR ： hot moudle replacement 热模块替换 / 模块热更新
 
 > 作用 : 一个模块发生变化，只会重新打包这一个模块（而不是打包所有文件，提升构建速度）
-> 只能处理非入口文件
+
+> 只能处理非入口文件，开启HMR功能后，css抽离不生效，不支持contenthash，chunkhash
 
 + 样式文件：可以使用HMR功能，因为style-loader内部实现了
 
