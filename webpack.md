@@ -274,3 +274,14 @@ element.addEventListener('click',  () => {
 
 + 懒加载 只有需求时才会加载
 
+
+### externals
+```
+module.exports = {
+  //...
+  externals: {
+    jquery: 'jQuery' 
+    //将需要忽略打包的都写在这个里面，但前提是index.html文件里面必须script引入
+  }
+};
+```
