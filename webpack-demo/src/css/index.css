@@ -1,0 +1,13 @@
+.test{
+    color: red;
+}
+body{
+    background-color: blanchedalmond;
+    background: url("../imgs/组\ 34015.jpg");
+}
+.game{
+    width: 200px;
+    height: 200px;
+    border: 10px solid rgb(15, 92, 235);
+    transition: 1s;
+}
